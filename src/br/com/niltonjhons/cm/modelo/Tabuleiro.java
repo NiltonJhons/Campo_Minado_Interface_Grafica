@@ -1,5 +1,4 @@
 package br.com.niltonjhons.cm.modelo;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
@@ -98,9 +97,9 @@ public class Tabuleiro implements CampoObservador {
     private void mostrarMinas() {
         campos.stream()
                 .filter(c -> c.isMinado())
+                .filter(c -> !c.isMarcado())
                 .forEach(c -> c.setAberto(true));
     }
-
 
     public int getLinhas() {
         return linhas;
